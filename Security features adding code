@@ -1,0 +1,7 @@
+# DANGER (Vulnerable)
+# cursor.execute(f"SELECT * FROM users WHERE username = '{user_input}'")
+
+# SECURE (Using a parameterized query)
+sql = "SELECT * FROM users WHERE username = %s"
+cursor.execute(sql, (user_input,)) 
+# The database driver handles escaping the 'user_input'
